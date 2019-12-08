@@ -1,0 +1,17 @@
+# fluentd-daemonset.yaml
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: fluentd-daemonset
+spec:
+  template:
+    metadata:
+      labels:
+        name: fluentd # Pod template's label selector
+    spec:
+      containers:
+        - name: fluentd
+          image: gcr.io/google-containers/fluentd-elasticsearch:1.20
+  selector:
+    matchLabels:
+      name: fluentd # Label selector that determines which Pods belong to the DaemonSet
