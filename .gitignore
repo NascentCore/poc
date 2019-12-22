@@ -30,3 +30,6 @@
 *.exe
 *.out
 *.app
+
+# All bazel symlinks.
+/bazel-*

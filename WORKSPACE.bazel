@@ -1,0 +1,3 @@
+# Needed for bazel to recognize workspace.
+# Will add more external dependencies.
+# See https://docs.bazel.build/versions/2.0.0/build-ref.html#workspaces
