@@ -24,8 +24,15 @@ https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-
 *   [Markdown cheatsheet](
     https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
     Markdown is used to write documents.
+
+### Bazel
+
 *   [Bazel rules for Go](
     https://github.com/bazelbuild/rules_go).
 *   [Bazel gazelle](https://github.com/bazelbuild/bazel-gazelle). Gazelle is
     used to manaage Go build files.
 *   [Bazel rules for docker](https://github.com/bazelbuild/rules_docker).
+
+### Machine learning
+
+*   [CIFAR-10 with TensorFlow](https://www.tensorflow.org/tutorials/images/cnn).
