@@ -26,3 +26,5 @@ https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-
     Markdown is used to write documents.
 *   [Bazel Rules for Go](
     https://github.com/bazelbuild/rules_go).
+*   [Bazel gazelle](https://github.com/bazelbuild/bazel-gazelle). Gazelle is
+    used to manaage Go build files.
