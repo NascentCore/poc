@@ -11,6 +11,14 @@ Notes:
 
 *   `.gitignore` has an entry to ignore `bazel-*` files.
 
+## Setup SSH connection to Github
+
+See [Connecting to GitHub with SSH](
+https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh),
+especially
+[Generating a new SSH key and adding it to the ssh-agent](
+https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+
 ## Useful links
 
 *   [Markdown cheatsheet](
