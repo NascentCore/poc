@@ -36,3 +36,4 @@ https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-
 ### Machine learning
 
 *   [CIFAR-10 with TensorFlow](https://www.tensorflow.org/tutorials/images/cnn).
+*   [TensorFlow with Docker](https://www.tensorflow.org/install/docker)
