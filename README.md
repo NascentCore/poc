@@ -32,6 +32,8 @@ https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-
 *   [Bazel gazelle](https://github.com/bazelbuild/bazel-gazelle). Gazelle is
     used to manage build files for Go source code.
 *   [Bazel rules for docker](https://github.com/bazelbuild/rules_docker).
+    *   To push, first `docker login -u <username> --password-stdin`
+    *   Then `bazel run :<container_push_label>`
 
 ### Machine learning
 
