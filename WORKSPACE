@@ -52,3 +52,16 @@ load(
     _py_image_repos = "repositories",
 )
 _py_image_repos()
+
+# go_image rules
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+load(
+    "@io_bazel_rules_docker//repositories:repositories.bzl",
+    container_repositories = "repositories",
+)
+container_repositories()
+load(
+    "@io_bazel_rules_docker//go:image.bzl",
+    _go_image_repos = "repositories",
+)
+_go_image_repos()
