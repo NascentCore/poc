@@ -1,0 +1,29 @@
+load("@io_bazel_rules_docker//python:image.bzl", "py_image")
+load("@io_bazel_rules_docker//container:container.bzl", "container_push")
+
+py_library(
+    name = "lib",
+    srcs = ["lib.py"],
+)
+
+py_binary(
+    name = "bin",
+    srcs = ["bin.py"],
+    deps = [":lib"],
+)
+
+py_image(
+    name = "bin_image",
+    srcs = ["bin.py"],
+    deps = [":lib"],
+    main = "bin.py",
+)
+
+container_push(
+    name = "push_bin_image",
+    image = ":bin_image",
+    format = "Docker",
+    registry = "index.docker.io",
+    repository = "nascentcore/poc",
+    tag = "dev",
+)

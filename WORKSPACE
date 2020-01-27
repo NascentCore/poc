@@ -33,40 +33,35 @@ load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies")
 
 gazelle_dependencies()
 
-load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
-
-############
-# Docker
-############
-# Download the rules_docker repository at release v0.13.0
+# Download the rules_docker repository at release v0.14.1
 http_archive(
     name = "io_bazel_rules_docker",
-    sha256 = "df13123c44b4a4ff2c2f337b906763879d94871d16411bf82dcfeba892b58607",
-    strip_prefix = "rules_docker-0.13.0",
-    urls = ["https://github.com/bazelbuild/rules_docker/releases/download/v0.13.0/rules_docker-v0.13.0.tar.gz"],
+    sha256 = "dc97fccceacd4c6be14e800b2a00693d5e8d07f69ee187babfd04a80a9f8e250",
+    strip_prefix = "rules_docker-0.14.1",
+    urls = ["https://github.com/bazelbuild/rules_docker/releases/download/v0.14.1/rules_docker-v0.14.1.tar.gz"],
 )
 
+# py_image rules
 load(
     "@io_bazel_rules_docker//repositories:repositories.bzl",
     container_repositories = "repositories",
 )
 container_repositories()
-
-# This is NOT needed when going through the language lang_image
-# "repositories" function(s).
-load("@io_bazel_rules_docker//repositories:deps.bzl", container_deps = "deps")
-
-container_deps()
-
 load(
-    "@io_bazel_rules_docker//container:container.bzl",
-    "container_pull",
+    "@io_bazel_rules_docker//python:image.bzl",
+    _py_image_repos = "repositories",
 )
+_py_image_repos()
 
-container_pull(
-  name = "java_base",
-  registry = "gcr.io",
-  repository = "distroless/java",
-  # 'tag' is also supported, but digest is encouraged for reproducibility.
-  digest = "sha256:deadbeef",
+# go_image rules
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+load(
+    "@io_bazel_rules_docker//repositories:repositories.bzl",
+    container_repositories = "repositories",
 )
+container_repositories()
+load(
+    "@io_bazel_rules_docker//go:image.bzl",
+    _go_image_repos = "repositories",
+)
+_go_image_repos()

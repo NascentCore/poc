@@ -30,9 +30,13 @@ https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-
 *   [Bazel rules for Go](
     https://github.com/bazelbuild/rules_go).
 *   [Bazel gazelle](https://github.com/bazelbuild/bazel-gazelle). Gazelle is
-    used to manaage Go build files.
+    used to manage build files for Go source code.
 *   [Bazel rules for docker](https://github.com/bazelbuild/rules_docker).
+    *   Registry needs to be set to `index.docker.io`
+    *   To push, first `docker login -u <username> --password-stdin`
+    *   Then `bazel run :<container_push_label>`
 
 ### Machine learning
 
 *   [CIFAR-10 with TensorFlow](https://www.tensorflow.org/tutorials/images/cnn).
+*   [TensorFlow with Docker](https://www.tensorflow.org/install/docker).
