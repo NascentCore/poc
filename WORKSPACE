@@ -4,6 +4,7 @@
 # Gazelle
 ############
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 
 http_archive(
     name = "io_bazel_rules_go",
@@ -65,3 +66,12 @@ load(
     _go_image_repos = "repositories",
 )
 _go_image_repos()
+
+# protobuf rules
+git_repository(
+  name = "org_pubref_rules_protobuf",
+  remote = "https://github.com/pubref/rules_protobuf",
+  tag = "v0.8.2",
+)
+load("@org_pubref_rules_protobuf//go:rules.bzl", "go_proto_repositories")
+go_proto_repositories()
