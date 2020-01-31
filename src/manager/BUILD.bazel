@@ -1,6 +1,6 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
 load("@io_bazel_rules_docker//go:image.bzl", "go_image")
-load("@org_pubref_rules_protobuf//go:rules.bzl", "go_proto_library")
+load("@io_bazel_rules_go//proto:def.bzl", "go_proto_library")
 
 go_library(
     name = "go_default_library",
@@ -20,10 +20,13 @@ go_image(
     binary = ":manager",
 )
 
+proto_library(
+    name = "test_proto",
+    srcs = ["test.proto"],
+)
 
 go_proto_library(
-  name = "test_proto",
-  protos = ["test.proto"],
-  with_grpc = True,
-  verbose = 1, # 0=no output, 1=show protoc command, 2+ more...
+    name = "go_test_proto",
+    importpath = "src/manager/test",
+    proto = ":test_proto",
 )

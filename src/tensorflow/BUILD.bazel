@@ -15,14 +15,14 @@ py_binary(
 py_image(
     name = "bin_image",
     srcs = ["bin.py"],
-    deps = [":lib"],
     main = "bin.py",
+    deps = [":lib"],
 )
 
 container_push(
     name = "push_bin_image",
-    image = ":bin_image",
     format = "Docker",
+    image = ":bin_image",
     registry = "index.docker.io",
     repository = "nascentcore/poc",
     tag = "dev",
